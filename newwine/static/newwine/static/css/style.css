@@ -1,0 +1,923 @@
+html{
+    margin: 0px 0px;
+    padding: 0 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-image: url(../img/background.png);
+    margin: 0px 0px;
+    padding: 0 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+hr{
+    
+    width: 50px;
+    border: 1px solid rgba(30,30,30,0.70);
+    margin-bottom: 30px;
+}
+
+
+a, a:hover{
+    text-decoration: none;
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+ 
+
+.fa-bars{
+    color: white;
+    border: 2px solid rgba(255,255,255,0.0);
+    -webkit-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    height: 25px;
+    width: 25px;
+    line-height: 23px;
+    border-radius: 50%;
+}
+
+.fa-bars:hover{
+    border: 2px solid rgba(255,255,255,0.4);
+    
+}
+
+/*********************************************NAV*********************************************************/
+.navbar-nav{
+   margin-top: 10px;
+   font-size: 14px;
+}
+
+.navbar-custom {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    text-transform: uppercase;
+    background-color: #000;
+}
+
+.navbar-brand {
+    padding-top: 0px;
+    padding-bottom: 65px;
+    font-weight: 700;
+}
+
+.navbar-custom .navbar-brand:focus {
+    outline: 0;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle:focus,
+.navbar-custom .navbar-brand .navbar-toggle:active {
+    outline: 0;
+}
+
+.navbar-custom a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+}
+
+.navbar-custom .nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.navbar-custom .nav li a:hover {
+    outline: 0;
+    color: rgba(255,255,255,.8);
+    background-color: transparent;
+}
+
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:active {
+    outline: 0;
+    background-color: transparent;
+}
+
+.navbar-custom .nav li.active {
+    outline: 0;
+}
+
+.navbar-custom .nav li.active a {
+    background-color: rgba(255,255,255,.3);
+}
+
+.navbar-custom .nav li.active a:hover {
+    color: #fff;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: transparent;
+    border-color: #337ab7;
+}
+
+@media(min-width:768px) {
+    .navbar-custom {
+        padding: 20px 0;
+        border-bottom: 0;
+        letter-spacing: 1px;
+        background: 0 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .navbar-custom.top-nav-collapse {
+        padding: 0;
+        background: #000;
+    }
+}
+
+
+.dropdown-menu{
+    background-color: rgba(0,0,0,0.80);
+}
+
+.dropdown-menu > li > a {
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+/*******************************************NAV END***************************************************/
+
+
+
+/*****************************************HEADER***********************************************/
+.header{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: table;
+    top: 0;
+    background-size: cover;
+    background-position: top;
+}
+
+.header .heading {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    max-width: none;
+}
+
+.heading-content{
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.heading-content h1{
+    font-size: 350%;
+    font-weight: bold;
+    color: rgba(255,255,255,1.00);
+    line-height: 70%;    
+}
+
+.btn {
+    font-family: 'Open Sans';
+    font-size: 115%;
+    color: rgba(255,255,255,0.80);
+    text-transform: uppercase;
+    text-decoration: none;
+    border: solid rgba(255,255,255,0.80) 2px;
+    padding: 10px 20px;
+    border-radius: 9px;
+    transition: all 0.5s;
+    margin-top: 10%;
+}
+
+.btn:hover,.btn:active{
+    
+    color: rgba(255,255,255,1.00);
+    border: solid rgba(255,255,255,1.00) 2px;
+}
+
+
+
+
+/********Media Queries************/
+@media screen and (max-width: 900px){
+
+    .heading-content h1{
+        font-size: 450%;
+    }
+
+    .btn{
+        font-size: 130%;
+        padding: 9px 17px;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .heading-content h1{
+        font-size: 300%;
+    }
+
+    .btn{
+        font-size: 110%;
+        padding: 9px 17px;
+    }
+}
+
+@media screen and (max-width: 480px){
+
+    .heading-content h1{
+        font-size: 250%;
+    }
+
+    .btn{
+        font-size: 100%;
+        padding: 6px 14px;
+    }
+
+}
+/********Media Queries END*********/
+
+/*****************Header END*************/
+
+
+
+#newwine-mission{
+    color: white;
+    padding-bottom: 60px;
+    padding-top: 40px;
+    margin-bottom: 70px;
+    text-align: center;
+    background-color: rgba(30,30,30,0.8);
+}
+
+
+
+#about-newwine{
+    margin-top: 30px;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+
+
+#about-pic{
+    margin-top: 80px;
+    margin-bottom: 70px;
+}
+
+@media (min-width: 992px) and (max-width: 1210px){
+    #about-pic{
+        margin-top: 150px;
+    }
+}
+
+@media (max-width: 991px){
+    #about-pic{
+        margin-top: 0px;
+    }
+}
+
+
+
+#history{
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+#history-content{
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+#founder{
+    margin-top: 30px;
+    border-radius: 50%;
+    width: 200px;
+}
+
+@media screen and (max-width:480px){
+    #founder{
+        width: 150px;
+    }
+}
+
+
+#initiators {
+    margin-bottom: 60px;
+}
+
+
+.owl-carousel .owl-item img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: block;
+    height: 230px;
+    width: 230px;
+}
+
+.item-content {
+    background-color: #ffffff;
+    height: 80px;
+    width: 230px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.initiator-name {
+    padding-top: 10px;
+}
+
+.initiator-position {
+    margin-top: 10px;
+    
+}
+
+.slide-item {
+    width: 230px;
+    margin: 0px;
+}
+
+.shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/********************************tenets and theme***************************************/
+#theme{
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#theme-scripture{
+    margin-top: 35px;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: normal;
+    text-align: justify;
+}
+
+.tenets-container {
+    color: white;
+    padding-bottom: 70px;
+    background-color: rgba(30,30,30,0.8);
+}
+.tenets-container h1{
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 50px;
+}
+
+.tenets-list {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.tenets-list .tenets-image img {
+    max-width: 160px;
+    height: 160px;
+    -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+}
+
+.tenets-list .tenets-text {
+    margin-top: 30px;
+    opacity: 0.8;
+}
+
+.tenets-list .tenets-text a {
+    color: aliceblue;
+    border-bottom: 1px dotted aliceblue;
+}
+.tenets-list .tenets-text a:hover, 
+.tenets-list .tenets-text a:focus { color: black; border: 0; }
+
+.tenets-list .nav-tabs {
+    margin-top: 30px;
+    border: 0;
+}
+
+.tenets-list .nav-tabs li {
+    float: none;
+    display: inline-block;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.tenets-list .nav-tabs li a {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    background: none;
+    border: 1px solid #fff;
+    border-color: rgba(0, 0, 0, 0.8);
+    -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+}
+
+.tenets-list .nav-tabs li a:hover {
+    
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    
+}
+
+.tenets-list .nav-tabs li.active a,
+.tenets-list .nav-tabs li.active a:focus {
+    background: rgba(192,165,50,1.00); 
+    
+    
+    border: 0;
+}
+/********************************tenets*******************************************/
+
+
+/***************************Church Meetings*******************************************/
+#weekly-meetings{
+    height: 100%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    margin-bottom: 60px;
+}
+#meetings{
+    color: white;
+    background-color: rgba(30,30,30,0.80);
+    margin-top: 40px;
+}
+
+#meeting-head{
+    text-align: center;
+    margin-top: 90px;
+    margin-bottom: 30px;
+}
+#meeting-image img{
+    width: 100%;
+    height: 100%;
+    transition: 1.5s all ease-in-out;
+   -webkit-transition: 1.5s all ease-in-out;
+   -o-transition: 1.5s all ease-in-out;
+   -moz-transition: 1.5s all ease-in-out;
+}
+#meeting-image{
+    overflow: hidden;
+}
+
+#meeting-image:hover img{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+@media(min-width: 768px){
+    #meetings{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+    #meeting-image{
+        width: 60%;
+        /*! height: 200px; */
+    }
+    #meeting-times{
+        width: 40%;
+        align-self: center;
+        text-align: center;
+    }
+}
+
+
+
+
+@media(max-width: 767px){
+    #meetings{
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    #meeting-times{  
+        text-align: center;
+        padding-top: 30px;
+    }
+}
+
+@media(max-width: 480px){
+    #meetings{
+        text-align: center;
+    }
+}
+
+
+/***************************Church Meetings END***************************************/
+
+
+
+
+/********************************Function***************************************/
+#function-head{
+	text-align: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+/********************************Function END***************************************/
+
+
+/********************************Department Meeting Times***************************************/
+
+#department-meeting-head{
+    text-align: center;
+}
+
+#date-time{
+    margin-top: 30px;
+    font-size: 22px;
+    border-right: 1px solid rgba(30,30,30,1.00);
+    text-align: center;
+
+}
+
+#location{
+    margin-top: 30px;
+    font-size: 22px;
+    text-align: center;
+}
+
+/********************************Department Meeting Times END***************************************/
+
+
+
+/********************************Join ***************************************/
+#join{
+	margin-top: 50px;
+}
+
+#join-head{
+	text-align: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+#join-text{
+	font-size: 22px;
+}
+
+
+#team .text-muted {
+  color:#777;
+  margin-top: 10px;
+}
+
+#team a, #team a.active, #team a:active, #team a:focus, #team a:hover {
+  outline:0;
+}
+
+#team a.active, #team a:active, #team a:focus, #team a:hover {
+  color:#fec503;
+}
+
+section#team {
+  padding:100px 0;
+}
+
+section#team h2.section-heading {
+  font-size:40px;
+  margin-top:0;
+  margin-bottom:15px;
+}
+
+section#team h3.section-subheading {
+  font-size:16px;
+  text-transform:none;
+  font-weight:400;
+  margin-bottom:75px;
+}
+
+@media (min-width:768px) {
+  section#team {
+    padding:150px 0;
+  }
+}
+
+.team-member {
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.team-member img {
+  margin:0 auto;
+  border:7px solid #fff;
+  border-radius: 50%;
+  width: 250px;
+  height: 260px;
+}
+
+.team-member h4 {
+  margin-top:25px;
+  margin-bottom:0;
+  text-transform:none;
+}
+
+.team-member p {
+  margin-top:0;
+}
+
+
+
+
+
+/********************************Join ***************************************/
+
+
+
+
+
+/********************************Media***************************************/
+/**************************************Pictures*****************************/
+.other-pics{
+    display: none;
+}
+
+
+.album-name{
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 150px;
+    background-color: rgba(30,30,30,0.90);
+    padding: 25px 25px;
+}
+
+@media (max-width: 768px){
+    .album-name{
+        height: 200px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+    .album-name{
+        height: 200px;
+    }
+}
+
+.album-name p{
+    color: rgba(255,255,255,0.8);
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+
+.album-name p:hover{
+    color: rgba(255,255,255,1.00);
+}
+
+.album-date{
+    font-size: 14px;
+}
+
+.album-img{
+    margin-top: 70px;
+    width: 100%;
+    height: 300px;
+}
+
+
+
+/*************************************Pictures END**************************/
+
+/************************************Video*******************************/
+.video-text{
+    margin-top: 50px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; 
+    overflow: hidden;
+    margin-top: 100px;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    bottom: 15px;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px){
+    .video-container iframe,
+    .video-container object,
+    .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/************************************Video END****************************/
+
+
+
+
+/************************************Documents****************************/
+.doc-link{
+    color: rgba(30,30,30,1.00);
+}
+.doc-icon{
+    color: white;
+
+	font-size: 30px; 
+	background-color: rgba(30,30,30,0.8);	
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    padding: 50px 40px;
+}
+
+.doc-name{
+    color: white;
+	font-size: 14px;
+	background-color: rgba(0,0,0,1.00);
+	margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 768px){
+	.doc-icon{
+        font-size: 30px; 
+        padding: 40px 20px;
+        width: 70%;
+        color: rgba(255,255,255,1.00);
+    }
+    
+    .doc-name{
+        font-size: 14px;
+        width: 70%;
+        color: rgba(255,255,255,1.00);
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+@media (max-width: 580px){
+	.doc-icon{
+        background-color: transparent;
+        font-size: 20px; 
+        padding: 20px 0px;
+        width: 50%;
+        color: rgba(30,30,30,1.00);
+    }
+    
+    .doc-name{
+        text-align: center;
+        background-color: transparent;
+        font-size: 14px;
+        width: 50%;
+        color: rgba(30,30,30,1.00);
+    }
+}
+
+
+/*********************************Documents END************************/
+
+
+/********************************Media END***********************************/
+
+
+
+.registration{
+    margin-top: 80px;
+}
+
+.registration-head{
+    margin-bottom: 30px;
+}
+
+.form-control,.form-group{
+    margin-bottom: 35px;
+    font-size: 16px;
+    border-radius: 0px;
+    height: 50px;
+}
+
+input{
+    width: 100%;
+    height: 44px;
+    padding: 20px;
+    text-align: left;
+}
+
+
+.form-control:focus,.form-group:focus{
+    border-color: rgba(239,223,3,0.80);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(239,223,3,0.60);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(239,223,3,0.60);
+}
+
+.btn-info{
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 25%;
+    font-weight: lighter;
+    color: #fff;
+    font-size: 20px;
+    background-color: rgba(239,223,3,0.80);
+    border-color: rgba(239,223,3,0.80);
+    border-radius: 0px;
+    transition: background-color .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -o-transition: background-color .3s ease-in-out;
+}
+.btn-info:hover,.btn-info:focus,.btn-info:active{
+    color: #fff;
+    background-color: rgba(239,223,3,1.00);;
+    border-color: rgba(239,223,3,1.00);;
+}
+
+/********************************Form********************************/
+.message{
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/*************************************Audio**********************************/
+#sermons{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.current-song{
+    color: rgba(239,223,3,1.00);
+}
+
+
+.audio-img{
+    width: 80%;
+}
+
+@media screen and (max-width: 350px){
+   .audio-img{
+    width: 80%;
+    height: 300px;
+} 
+}
+
+
+.sermon-info{
+    width: 80%;
+    background-color: rgba(250,250,250,1.00);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;/*
+    margin-bottom: 30px;
+    margin-top: -5px */
+    margin: -5px 30px 10% 10%;
+}
+
+.divider{
+    width: 80%;
+    height: 1px;
+    margin: 10px auto;
+    background-color: rgba(30,30,30,1.00);
+}
+/*************************************Audio END******************************/

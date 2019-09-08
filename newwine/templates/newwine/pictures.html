@@ -1,0 +1,176 @@
+{% extends 'newwine/base.html' %}
+{% block title %}Media | Images{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/swipebox.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style.css' %}" />
+{% endblock %}
+
+
+{% block body %}
+<!--nav-->
+<body class="touching" data-spy="scroll" data-target=".navbar-fixed-top">
+
+{% include 'newwine/navbar.html' %}
+
+
+<section class="header" style="background-image: url(../../static/newwine/static/img/icgc/technology-media-sectors.jpg);">
+    <div class="heading">
+        <div class="heading-content">
+            <h1 class="wow fadeInDown" data-wow-delay="0.5s">MEDIA | PHOTOS</h1>
+            <a class="btn wow fadeInUp" data-wow-delay="0.5s" href="#more">FIND OUT MORE</a>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="container">
+    <h1 style="text-align: center; margin-top: 80px;">PHOTO ALBUMS</h1>
+    <hr class="wow slideInLeft" data-wow-delay="0.2s">
+    <div class="row wow fadeIn" id="more" data-wow-delay="0.5s">
+        <!--PICTURES-->
+            {% for album in albums %}   
+            <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
+                <a rel="gallery-{{ album.id }}" href="{{ album.album_pic.url }}" class="swipebox">
+                    <img class="album-img img-responsive" src="{{ album.album_pic.url }}" alt="image">
+                    <div class="album-name">
+                        <p style="border-bottom: 1px #fff solid; padding-bottom: 8px;">{{ album.name }}</p>
+                        <p class="album-date">{{ album.added }}</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Pics in gallery--> 
+            <div class="other-pics">
+                {% for image in album.images_set.all %}
+                <a rel="gallery-{{ album.id }}" href="{{ image.file.url }}" class="swipebox">
+                    <img class="img-responsive" src="{{ image.file.url }}" alt="{{ album.name }}">
+                </a>
+                {% endfor %}
+            </div>
+            {% endfor %}
+    </div>
+    <!--PICTURES END-->
+</div>
+</body>
+{% endblock %}
+
+
+
+{% block js %}
+<!--Swipebox Plugin-->
+<script src="{% static 'newwine/static/js/jquery.swipebox.js' %}"></script>
+<script src="{% static 'newwine/static/js/ios-orientationchange-fix.js' %}"></script>
+
+
+<script type="text/javascript">
+$( document ).ready(function() {
+/* Basic Gallery */
+$( '.swipebox' ).swipebox();
+
+/* Dynamic Gallery */
+$( '#gallery' ).click( function( e ) {
+    e.preventDefault();
+    $.swipebox( [
+        { href : 'http://swipebox.csag.co/mages/image-1.jpg', title : 'My Caption' },
+        { href : 'http://swipebox.csag.co/images/image-2.jpg', title : 'My Second Caption' }
+    ] );
+} );
+
+
+// jQuery to collapse the navbar on scroll
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').not('.dropdown-toggle').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+
+//-------- OPEN
+
+  $('[data-popup-open]').on('click',function(e) {
+    "use strict";
+    var targeted_popup_class = $(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+    e.preventDefault();
+  });
+
+
+
+  //-------- CLOSE
+  $('[data-popup-close]').on('click',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+    e.preventDefault();
+  });   
+
+
+//NAV END
+
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top - $('nav').height()
+        }, 2000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+             // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          }
+        });
+      }
+    }
+  });
+    // Initialize WOW.js Scrolling Animations
+    new WOW().init();
+
+});
+
+</script>
+
+<!-- <script type="text/javascript" src="{% static 'newwine/static/js/main.js' %}"></script> -->
+{% endblock %}

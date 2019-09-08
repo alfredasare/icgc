@@ -1,0 +1,146 @@
+{% extends 'newwine/base.html' %}
+{% block title %}{{ articles.article_title }} | New Wine{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<style>
+ul.nav.navbar-nav.navbar-right li {
+    margin-top: 0px;
+}
+ul li {
+    margin-top: 15px;
+}
+ol li {
+    margin-top: 15px;
+}
+</style>
+{% endblock %}
+
+
+{% block body %}
+<body style="background-image: none; background-color: rgba(255,255,255,1.00);" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    {% include 'newwine/static-navbar.html' %}
+
+    <!-- Article Head -->
+    <div id="article-head">
+        <div id="article-head-text">
+            <p style="font-size: 40px; text-transform: capitalize; padding: 5px;">{{ articles.article_title }}</p>
+        </div>
+    </div>
+    <!-- Article Head END -->  
+    
+    
+    <!-- Article Details -->
+    <div style="margin-top: 70px;" class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <p style="font-size: 16px;">
+                    {{ articles.article_body|safe }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Article Details END -->
+
+    <!-- Author -->
+    <div style="margin-top: 25px;" class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <div id="author">
+                    <p>{{ articles.article_owner_name }}</p>
+                    <p>{{ articles.article_owner_title }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Author END -->
+
+    <!-- Others Link -->
+    <div style="margin-top: 60px; margin-bottom: 90px; text-align: center;" class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a id="view-others-link" href="{% url 'newwine:articles' %}">View Other Articles</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Others Link END -->
+
+{% endblock %}
+
+
+
+
+{% block js %}
+<script>
+    // Initialize WOW.js Scrolling Animations
+    new WOW().init();
+//NAV
+
+
+// jQuery to collapse the navbar on scroll
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').not('.dropdown-toggle').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+//NAV END
+
+
+
+//Scroll Bar
+if($(window).width()>1024) {
+    $('body,.modal').niceScroll({
+      scrollspeed:'100',
+      mousescrollstep:'40',
+      zindex:'99999',
+      bouncescroll:'enable',
+      cursorborderradius:'0px',
+      cursorborder:'none',
+      cursorcolor:'#EFDF03'
+    });
+  }
+//Scroll Bar END	
+
+
+//-------- OPEN
+
+  $('[data-popup-open]').on('click',function(e) {
+    "use strict";
+    var targeted_popup_class = $(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+    e.preventDefault();
+  });
+
+
+
+  //-------- CLOSE
+  $('[data-popup-close]').on('click',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+    e.preventDefault();
+  });	
+</script>
+{% endblock %}

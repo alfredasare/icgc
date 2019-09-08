@@ -1,0 +1,185 @@
+
+{% extends 'newwine/base.html' %}
+{% block title %}Executives{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/upcoming.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style.css' %}" />
+{% endblock %}
+
+
+{% block body %}}
+<body id="page-top">
+
+{% include 'newwine/static-navbar.html' %}
+
+<section>
+
+  <div style="top: 37px;" id="leftSide">
+    <div id="home">
+      <!-- Your logo -->
+	    <img src="{% static 'newwine/static/img/icgc/logo.png' %}" alt="" class="main-logo" />
+
+      <div class="h-content">
+        <h1 style="text-align: left; margin-top: 30px; font-weight: bold;">THE EXECUTIVE COMMITTEE</h1>
+        <p style="text-align: left;">
+          Here are the members of the Executive Committee, also known as, the Core Seven. They are responsible for running the day to day activities of New Wine
+        </p>
+        <p style="text-align: left;">Click on the View Button to see their details</p>
+      </div>
+
+      <ul class="social_icons">
+        <li><a target="_blank" href="https://web.facebook.com/icgcknust/?ref=br_rs"><i class="icon ion-social-facebook"></i></a></li>
+        <li><a target="_blank" href="https://www.instagram.com/icgcknust/"><i class="icon ion-social-instagram"></i></a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div id="rightSide">
+
+    <div class="project wow fadeIn">
+      <ul class="gallery project_navigation">
+        {% for executive in thumbnail %}
+        <li class="item col-sm-6 col-xs-12">
+          <figure>
+            <!-- Your picture -->
+            <img src="{{ executive.profile.url }}" alt="{{ executive.name }}" class="img-responsive" />
+            <!-- Picture's description below this one -->
+            <figcaption class="caption">
+              <div class="photo-details">
+                <h4>{{ executive.name }}</h4>
+                <span>{{ executive.position }}</span>
+              </div>
+              <a href="#project{{ executive.id }}" class="view">VIEW</a>
+            </figcaption>
+          </figure>
+        </li> 
+        {% endfor %}
+      </ul>
+
+      <ul class="project_info">
+        {% for executive in details %}
+        <li id="project{{ executive.id }}">
+          <div class="project_content">
+            <p>NAME</p>
+            <p style="font-size: 150%;">{{ executive.name }}</p>
+
+            <p style="margin-top: 50px;">POSITION</p>
+            <p style="font-size: 150%;">{{ executive.position }}</p>
+
+            <p style="margin-top: 50px;">HOSTEL</p>
+            <p style="font-size: 150%;">{{ executive.hostel }}</p>
+
+            <p style="margin-top: 50px;">COURSE</p>
+            <p style="font-size: 150%;">{{ executive.course }}</p>
+
+            <p style="margin-top: 50px;">CONTACT</p>
+            <p style="font-size: 150%;">{{ executive.contact }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    </div>  
+</section>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'newwine/static/js/masonry.pkgd.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'newwine/static/js/imagesloaded.pkgd.min.js' %}"></script>
+<script>
+
+ // Initialize WOW.js Scrolling Animations
+ new WOW().init();
+
+//-------- OPEN
+
+  $('[data-popup-open]').on('click',function(e) {
+    "use strict";
+    var targeted_popup_class = $(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+    e.preventDefault();
+  });
+
+
+
+  //-------- CLOSE
+  $('[data-popup-close]').on('click',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+    e.preventDefault();
+  }); 
+
+
+
+	/* ------------------------------------- */
+  /* Masonry Grid    ................... */
+  /* ------------------------------------- */
+    $(function() {
+      var $grid = $('.gallery').imagesLoaded( function() {
+        $grid.masonry({
+          itemSelector: '.item',
+        });
+      });
+    });
+
+ /* ------------------------------------- */
+ /* Project Gallery   ................... */
+ /* ------------------------------------- */
+  $(function() {
+
+    function showContent(e, element, navigation, info, img, close) {
+      var eventTarget = e.target.hash;
+      var imgSrc = $(e.target).parents('figure').children('img').attr('src');
+
+      e.preventDefault();
+      $(element).addClass('show');
+
+      $(info).find('li').removeClass('is-visible');
+      $(info).find("li"+eventTarget).addClass('is-visible');
+
+      $(navigation).siblings(".project_info").children('li'+eventTarget).find('img').attr('src', imgSrc);
+    }
+
+    var projectContainerList = document.getElementsByClassName('project');
+
+    $(projectContainerList).each(function() {
+   //  for (var i = 0; i < projectContainerList.length; i++) {
+      var project = $(this);
+      var projectNavigation = $(project).children(".project_navigation");
+      var projectInfo = $(projectNavigation).siblings(".project_info");
+      var projectImg = $('<img>');
+      var closeButton = $('<a href="#close" class="close"><i class="ion-android-close"></i></a>');
+
+      function appendAndPrepend(info, img, close) {
+        var infoTab = $(info).children('li');
+        $(infoTab).append(close);
+        $(infoTab).prepend(img);
+      }  appendAndPrepend(projectInfo, projectImg, closeButton);
+
+      $(projectNavigation).on('click', function(event) {
+        if ( event.target.tagName.toLowerCase() === 'a' ) {
+          showContent(event, project, projectNavigation, projectInfo, projectImg, closeButton);
+        }
+      });
+
+      $('.close').on('click', function(e) {
+        e.preventDefault();
+        $(project).removeClass('show');
+      });
+
+    });
+
+  });
+</script>
+{% endblock %}

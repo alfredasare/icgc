@@ -1,0 +1,132 @@
+{% extends 'newwine/base.html' %}
+{% block title %}{{ departments.department_name }} | New Wine{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style.css' %}" />
+{% endblock %}
+
+{% block body %}
+<body id="page-top">
+{% include 'newwine/navbar.html' %}
+
+<!--header-->
+<section class="header" style="background-image: url({{ departments.department_image.url }});">
+	<div class="heading">
+		<div class="heading-content">
+			<h1 class="wow fadeInDown" data-wow-delay="0.5s"><span class="dept-name">{{ departments.department_name }}</span></h1>
+			<a class="btn wow fadeInUp" data-wow-delay="0.5s" href="#more">FIND OUT MORE</a>
+		</div>
+	</div>
+</section>
+<!--header END-->
+
+
+<div id="more" class="container-fluid">
+
+	<!-- Who We Are -->
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+			<div id="about-head">
+				<h2 style="text-align: center; margin-top: 60px;" class="wow fadeIn" data-wow-delay="0.5s">Who We Are</h2>
+				<hr class="wow fadeInLeft" data-wow-delay="0.4s">
+			</div>
+			<div style=" font-size: 23px;" class="wow fadeIn" data-wow-delay="0.5s">
+				<p style="text-align:left;">{{ departments.department_about }}</p>
+			</div>
+		</div>
+	</div>
+	<!-- Who We Are END-->
+		
+	<!-- Meeting Times -->
+	<div style="margin-top: 70px; margin-bottom: 50px;" class="row">
+		<div id="department-meeting-head" class="col-xs-12 col-xs-offset-0">
+			<h2 style="text-align: center;" class="wow fadeIn" data-wow-delay="0.5s">Meeting Days And Time</h2>
+			<hr class="wow fadeInLeft" data-wow-delay="0.4s">
+		</div>
+		<div class="col-xs-6 col-xs-offset-0 col-md-5 col-md-offset-1" id="date-time">
+			<i class="far fa-4x fa-calendar-alt"></i>
+			<div style="margin-top: 10px;">{{ departments.department_meeting_day_1 }} @ {{ departments.department_meeting_time_1 }}</div>
+			{% if departments.department_meeting_day_2 != "N/A" %}
+			<div style="margin-top: 20px;">{{ departments.department_meeting_day_2 }} @ {{ departments.department_meeting_time_2 }}</div>
+			{% else %}
+			<p></p>
+			{% endif %}
+		</div>
+		<div class="col-xs-6 col-md-4" id="location">
+			<i class="fas fa-4x fa-map-marker"></i>
+			<div style="margin-top: 10px;">{{ departments.department_venue_1 }}</div>
+			{% if departments.department_venue_2 != "N/A" %}
+			<div style="margin-top: 20px;">{{ departments.department_venue_2 }}</div>
+			{% else %}
+			<p></p>
+			{% endif %}
+		</div>
+	</div>
+		<!-- Meeting Times END-->
+		
+	<!-- Want To Join-->
+	<div class="row">
+		<div id="join">
+			<div id="join-head">
+				<h2 class="wow fadeIn" data-wow-delay="0.5s">Want To Join ?</h2>
+				<hr class="wow fadeInLeft" data-wow-delay="0.4s">
+			</div>
+			<div style="text-align: justify;" class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 wow fadeIn" data-wow-delay="0.5s">
+				<div id="join-text">
+					<p>
+						If any member of New Wine is interested in joining this department, but has no idea how to, he/she can kindly contact the person(s) below
+						for more details :
+					</p>
+					<p style="text-align: center; font-size: 22px; margin-top: 30px; margin-bottom: 60px; font-weight: bold;">Please Contact : </p>
+				</div>
+			</div>
+			<section id="team" class="bg-light-gray">
+		        <div class="container">
+		            <div class="row">
+
+		            	{% if departments.department_deputy_name == "None" %}
+		            	<div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3">
+		            	{% else %}
+		                <div class="col-sm-6">
+						{% endif %}
+							<h4 style="text-align: center; font-weight: bold; font-size: 23px; margin-bottom: 30px;">HEAD</h4>
+		                    <div class="team-member"><img class="rounded-circle img-fluid" src="{{ departments.department_leader_image.url }}">
+								<h4 style="font-size: 20px;">{{ departments.department_leader_name }}</h4>
+								<h4 style="font-size: 18px;" class="text-muted">{{ departments.department_leader_course }}</h4>
+		                        <h4 style="font-size: 18px;" class="text-muted">{{ departments.department_leader_hostel }}</h4>
+		                        <h4 style="font-size: 18px;" class="text-muted">{{ departments.department_leader_contact }}</h4>
+		                    </div>
+		                </div>
+
+		                {% if departments.department_deputy_name == "None" %}
+		                	<p></p>
+		                {% else %}
+		                	<div class="col-sm-6">
+								<h4 style="text-align: center; font-weight: bold; font-size: 23px; margin-bottom: 30px;">DEPUTY</h4>
+			                    <div class="team-member"><img class="rounded-circle img-fluid" src="{{ departments.department_deputy_image.url }}">
+									<h4 style="font-size: 20px;">{{ departments.department_deputy_name }}</h4>
+									<h4 style="font-size: 18px;" class="text-muted">{{ departments.department_deputy_course }}</h4>
+			                        <h4 style="font-size: 18px;" class="text-muted">{{ departments.department_deputy_hostel }}</h4>
+			                        <h4 style="font-size: 18px;" class="text-muted">{{ departments.department_deputy_contact }}</h4>
+			                    </div>
+			                </div>
+		                {% endif %}
+
+
+		            </div>
+		        </div>
+		    </section>
+		</div>
+	</div>
+	<!-- Want To Join END-->
+</div>
+</body>
+
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{% static 'newwine/static/js/main.js' %}"></script>
+{% endblock %}

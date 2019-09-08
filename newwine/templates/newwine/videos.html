@@ -1,0 +1,59 @@
+{% extends 'newwine/base.html' %}
+{% block title %}Media | Videos{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style.css' %}" />
+{% endblock %}
+
+{% block body %}
+
+<!--nav-->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+ {% include 'newwine/navbar.html' %}
+
+
+
+<section class="header" style="background: url(../../static/newwine/static/img/icgc/pxuskw8oou2ia6pskwt7.jpg) no-repeat;background-size: cover;">
+    <div class="heading">
+        <div class="heading-content">
+            <h1 class="wow fadeInDown" data-wow-delay="0.5s">MEDIA | VIDEOS</h1>
+            <a class="btn wow fadeInUp" data-wow-delay="0.5s" href="#more">FIND OUT MORE</a>
+        </div>
+    </div>
+</section>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2 video-text">
+			<h2 id="more" class="wow fadeIn" data-wow-delay="0.5s" style="text-align: center;">Pneuma Arts</h2>
+			<hr class="wow fadeInLeft" data-wow-delay="0.5s">
+			<p style="font-size: 18px;">
+				Below are videos of some of the perfromances of Pneuma Arts. This video section
+				has been linked directly to Pneuma Arts' YouTube channel so you can stream all the videos
+				right here or on Pneuma Arts' official YouTube Channel. Enjoy these Spirit-fiiled performances.
+			</p>
+		</div>
+	</div>
+</div>
+
+
+<!-- Pnuema Channel -->
+<div class="video-container" style="margin-bottom: 100px;">
+	<iframe width="753" height="380" src="https://www.youtube.com/embed/videoseries?list=PL0_d5jv1dwr7TeGjGttGq_H-3EVXpQ2QX" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!-- Pneuma Channel END -->
+
+</body>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{% static 'newwine/static/js/main.js' %}"></script>
+{% endblock %}
+
+

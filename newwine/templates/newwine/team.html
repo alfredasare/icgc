@@ -1,0 +1,114 @@
+{% extends 'newwine/base.html' %}
+{% block title %}Teams | New Wine{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/upcoming.css' %}" />
+{% endblock %}
+
+
+{% block body %}
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    {% include 'newwine/static-navbar.html' %}
+
+    <!-- Coordinator Head -->
+    <div id="team-head">
+        <div id="coordinator-head-text">
+            <h2>{{ teams.team_name}}</h2>
+        </div>
+    </div>
+    <!-- Coordinator Head END -->
+
+    <!-- Team Info -->
+    <div style="margin-bottom: 100px;" class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div id="team-info">
+                    <h2>What We Do</h2>
+                    <p style="font-size: 16px;">
+                        {{ teams.team_role|safe }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team Info END -->
+</body>
+
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+    // Initialize WOW.js Scrolling Animations
+    new WOW().init();
+//NAV
+
+
+// jQuery to collapse the navbar on scroll
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').not('.dropdown-toggle').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+//NAV END
+
+
+
+//Scroll Bar
+if($(window).width()>1024) {
+    $('body,.modal').niceScroll({
+      scrollspeed:'100',
+      mousescrollstep:'40',
+      zindex:'99999',
+      bouncescroll:'enable',
+      cursorborderradius:'0px',
+      cursorborder:'none',
+      cursorcolor:'#EFDF03'
+    });
+  }
+//Scroll Bar END	
+
+
+//-------- OPEN
+
+  $('[data-popup-open]').on('click',function(e) {
+    "use strict";
+    var targeted_popup_class = $(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+    e.preventDefault();
+  });
+
+
+
+  //-------- CLOSE
+  $('[data-popup-close]').on('click',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+    e.preventDefault();
+  });	
+</script>
+{% endblock %}

@@ -1,0 +1,165 @@
+{% load staticfiles %}
+
+{% block css %}
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/mod.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style.css' %}" />
+<style>
+  .dropdown-menu > li > a {
+        color: rgb(255, 255, 255);
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-inverse {
+        background-color: #222;
+        border-color: transparent;
+    }
+
+@media (max-width: 1200px) {
+    .navbar {
+        overflow-y: auto;
+        max-height: 85vh;
+    }
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+        margin-right: 30px;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
+</style>
+
+{% endblock %}
+
+<nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top"><img src="{% static 'newwine/static/img/icgc/logo.png' %}" alt="" width="65px" height="65px" /></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <ul class="nav navbar-nav navbar-right">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="{% url 'newwine:index' %}">Home</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="{% url 'newwine:about' %}">About</a>
+                </li>
+                    
+
+                <li>
+                    <a class="page-scroll" href="{% url 'newwine:executives' %}">Executives</a>
+                </li>
+                <li class="dropdown"> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Departments <b class="caret"></b> </a> 
+                    <ul class="dropdown-menu"> 
+                    <li><a href="/department/1/">Pneuma Arts</a></li>
+                    <li><a href="/department/2/">Music Department</a></li>
+                    <li><a href="/department/3/">Ushering Department</a></li>
+                    <li><a href="/department/4/">Welfare Department</a></li>
+                    <li><a href="/department/5/">Communications Department</a></li>
+                    <li><a href="/department/6/">Outreach Department</a></li>
+                    <li><a href="/department/7/">Protocol Department</a></li>
+                    <li><a href="/department/8/">Intercessory Department</a></li>
+                    <li><a href="/department/9/">Technical Department</a></li> 
+                    </ul> 
+                </li>
+                <li class="dropdown"> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Coordinators<b class="caret"></b> </a> 
+                    <ul class="dropdown-menu"> 
+                        <li><a href="/coordinator/1/">Deputy Financial Secretary</a></li> 
+                        <li><a href="/coordinator/2/">Bible Study Coordinator</a></li>
+                        <li><a href="/coordinator/3/">Transport Coordinator</a></li>
+                        <li><a href="/coordinator/4/">Halls & Hostels Coordinator</a></li>
+                        <li><a href="/gender-coordinators/">Gender Ministries Coordinators</a></li>
+                    </ul> 
+                </li>
+                <li class="dropdown"> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Teams<b class="caret"></b> </a> 
+                    <ul class="dropdown-menu"> 
+                        <li><a href="/team/1/">Medical Team</a></li>
+                    </ul> 
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Covenant Family <b class="caret"></b> </a> 
+                    <ul class="dropdown-menu">
+                    {% for item in family %}
+                    <li><a href="#" data-popup-open="popup-{{ forloop.counter }}">{{ item.cov_name }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'newwine:registration' %}">Registration</a>
+                    </li>
+                    <li class="dropdown"> 
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Blog <b class="caret"></b> </a> 
+                      <ul class="dropdown-menu"> 
+                        <li><a href="{% url 'newwine:articles' %}">Articles</a></li> 
+                        <li><a href="{% url 'newwine:testimonies' %}">Testimonies</a></li>
+                        <li><a href="{% url 'newwine:teachings' %}">Teachings</a></li>
+                        <li><a href="{% url 'newwine:outlines' %}">Bible Study Outlines</a></li>
+                        <li><a href="{% url 'newwine:theme' %}">Theme of the semester</a></li>
+                      </ul> 
+                    </li>
+                    <li class="dropdown"> 
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Media <b class="caret"></b> </a> 
+                        <ul class="dropdown-menu"> 
+                          <li><a href="{% url 'newwine:images' %}">Images</a></li> 
+                          <li><a href="{% url 'newwine:sermons' %}">Sermons</a></li>
+                          <li><a href="{% url 'newwine:videos' %}">Videos</a></li> 
+                          <!-- <li><a href="{% url 'newwine:documents' %}">Books</a></li>  -->
+                        </ul> 
+                    </li>
+                </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+{% include 'newwine/modal.html' %}

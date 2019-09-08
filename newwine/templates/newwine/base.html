@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="ICGC Newwine Web Team">
+    <meta name="description" content="ICGC CAMPUS MINISTRY, NEWWINE WEBSITE">
+    <meta name="keywords" content="ICGC, NEWWINE, ICGC NEWWINE, ICGC CAMPUS MINISTRY">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Title{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="icon" type="image/png" href="{% static 'newwine/static/img/icgc/logo.png' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/animate.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style2.css' %}" />
+    <style>
+      .btn.focus, .btn:focus, .btn:hover {
+          color: #fff !important; 
+          text-decoration: none;
+      }
+
+      
+         
+    @media (max-width: 1200px) {
+        .navbar {
+            overflow-y: auto;
+            max-height: 85vh;
+        }
+        .navbar-header {
+            float: none;
+        }
+        .navbar-left,.navbar-right {
+            float: none !important;
+        }
+        .navbar-toggle {
+            display: block;
+            margin-top: 12px !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
+            margin-right: 15px !important;
+        }
+        .navbar-collapse {
+            border-top: 1px solid transparent;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .navbar-fixed-top {
+            top: 0;
+            border-width: 0 0 1px;
+        }
+        .navbar-collapse.collapse {
+            display: none!important;
+        }
+        .navbar-nav {
+            float: none!important;
+            margin-top: 7.5px;
+        }
+        .navbar-nav>li {
+            float: none;
+        }
+        .navbar-nav>li>a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .collapse.in{
+            display:block !important;
+        }
+    }
+
+    collapse, .navbar-fixed-top .navbar-collapse {
+      max-height: none;
+    }
+
+      @media (max-width: 1200px){
+      .navbar-nav .open .dropdown-menu {
+          position: static;
+          float: none;
+          width: auto;
+          margin-top: 0;
+          background-color: transparent;
+          border: 0;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+      }
+    }
+
+    .navbar-fixed-bottom .navbar-collapse,.navbar-fixed-top .navbar-collapse{
+        max-height: none;
+    }
+    .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+        margin-left: 0px !important;
+    }
+
+ 
+
+    .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+    </style>
+    {% block css %}
+    {% endblock %}
+</head>
+
+
+
+{% block body %}
+
+
+{% endblock %}
+
+{% block footer %}
+<!-- footer -->
+{% url 'newwine:images' as images %}
+<div class="footer" {% if request.path == images %} style="margin-top: 50px;" {% endif %}>
+
+<div id="back-to-top"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+          <div class="contact">
+            <h4 class="contact-head">CONTACT US</h4>
+            <p class="email">Email us on <a class="email-link" href="mailto:knust.campusministry@centralgospel.com">knust.campusministry@centralgospel.com</a></p>
+            <p class="phone">Phone no. 0558218325</p>
+          </div>
+      </div>
+    <div class="col-xs-12 col-sm-6">
+          <div class="social">
+              <a target="_blank" href="https://web.facebook.com/icgcknust/?ref=br_rs"><i class="fab fa-facebook-f footer-social facebook"></i></a>
+              <a target="_blank" href="https://www.instagram.com/icgcknust/"><i class="fab fa-instagram footer-social instagram"></i></a>
+      </div>
+      <!-- @icgcknustcm -->
+            <div class="creator-info">
+              <div class="creator">Made by <span class="">ICGC WEB TEAM</span></div>
+              <div class="copyright">Copyright &copy; 2019. All rights reserved</div>
+            </div>
+        </div>
+  </div>
+</div>
+
+<div class="footer-logo">
+  <a href="#"><span></span></a>
+</div>  
+</div>
+</div>
+<!-- footer end -->
+</div>
+</body>
+{% endblock %}
+
+
+
+<script type="text/javascript" src="{% static 'newwine/static/js/jquery-1.11.3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'newwine/static/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'newwine/static/js/jquery.easing.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'newwine/static/js/wow.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'newwine/static/js/sb.js' %}"></script>
+<script type="text/javascript">
+    $(function(){
+        var navMain = $(".navbar-collapse");
+        navMain.on("click", "a:not([data-toggle])", null, function () {
+            navMain.collapse('hide');
+        });
+    });
+</script>
+
+{% block js %}{% endblock %}
+
+</html>

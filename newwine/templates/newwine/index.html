@@ -1,0 +1,385 @@
+{% extends 'newwine/base.html' %}
+{% block title %}New Wine | Breaking Limitations{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/timer.css' %}"/>
+{% endblock %}
+
+{% block body %}
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+{% include 'newwine/navbar.html' %}
+
+
+<!-- header -->
+
+<div id="scroll-animate">
+    <div id="scroll-animate-main">
+        <div class="wrapper-parallax">
+            <header>
+                <!-- Carousel -->
+                <!--Carousel Container-->
+                <div id="myCarousel" class="carousel slide carousel-fade wow fadeIn" data-wow-delay="0.5s"
+                     data-ride="carousel">
+                    <!--Carousel Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                        <li data-target="#myCarousel" data-slide-to="5"></li>
+                        <li data-target="#myCarousel" data-slide-to="6"></li>
+                        <li data-target="#myCarousel" data-slide-to="7"></li>
+                        <li data-target="#myCarousel" data-slide-to="8"></li>
+                    </ol>
+                    <!--Carousel Items-->
+                    <div class="carousel-inner" role="listbox">
+                        {% for item in carousel %}
+                        <div class="item">
+                            <img class="img-responsive" src="{{ item.image.url }}" alt=""/>
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1 class="caption-head">{{ item.caption | title }}</h1>
+                                    <div class="caption-text"><p></p></div>
+                                    <div class="mouse-icon hidden-xs">
+                                        <div class="scroll"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Carousel END -->
+            </header>
+        </div>
+    </div>
+</div>
+
+<!-- header END -->
+
+<!--Content-->
+<div class="content">
+    <!-- MVP -->
+    <div class="container-fluid mvp">
+        <div class="row">
+            <div class="col-xs-12 col-md-custom-3 col-md-custom-offset-1 padding-zero">
+                <div class="vision wow fadeIn" data-wow-delay="0.4s">
+                    <span class="fas fa-4x fa-eye round-border"></span>
+                    <h2 class="mvp-head">OUR VISION</h2>
+                    <p class="mvp-text">
+                        To establish the house of God through the development of Model New Testament Christians and
+                        churches.
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-custom-3 padding-zero">
+                <div class="mission wow fadeIn" data-wow-delay="0.6s">
+                    <span class="fas fa-4x fa-rocket round-border"></span>
+                    <h2 class="mvp-head">OUR MISSION</h2>
+                    <p class="mvp-text">
+                        Our Mission is Raising Leaders, Shaping Vision, and Influencing Society through Christ
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-custom-3 padding-zero">
+                <div class="philosophy wow fadeIn" data-wow-delay="0.8s">
+                    <span class="fas fa-4x fa-book round-border"></span>
+                    <h2 class="mvp-head">OUR PHILOSOPHY</h2>
+                    <p class="mvp-text">
+                        We believe in Practical Christianity, Human Dignity, and Excellence
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MVP END -->
+
+    <!-- Getting Involved -->
+    <div class="container-fluid gi">
+        <div class="row">
+            <h2 class="gi-header wow fadeIn" data-wow-delay="0.5s">DON'T WANT TO BE LEFT OUT ?</h2>
+            <hr class="wow fadeInLeft" data-wow-delay="0.4s" style="margin-bottom: 50px;">
+            <div class="gi-section col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-custom-3 col-md-custom-offset-1 wow fadeIn"
+                 data-wow-delay="0.5s">
+                <div class="gi-box">
+                    <img class="img-responsive" src="{% static 'newwine/static/img/icgc/72.png' %}" width="1296"
+                         height="864" alt=""/>
+                    <div class="gi-info">
+                        <div class="gi-info-head">JOIN A COVENANT FAMILY</div>
+                        <p style="font-size: 13px; width: 80%;">
+                            In New Wine, we have cell groups known as Covenant Families. Every member belongs to a
+                            Covenant Family
+                            by virtue of the hall or hostel where he or she resides. In our families, we pray, break
+                            bread, fellowship and learn so many things from one another. Trust me, you don't want to
+                            miss out on this!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="gi-section col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-custom-3 col-md-offset-0 wow fadeIn"
+                 data-wow-delay="0.7s">
+                <div class="gi-box">
+                    <img class="img-responsive" src="{% static 'newwine/static/img/icgc/11.jpg' %}" alt=""/>
+                    <div class="gi-info">
+                        <div class="gi-info-head">JOIN A DEPARTMENT</div>
+                        <p style="font-size: 13px; width: 80%;">
+                            Every member is expected to serve in a department. It is a privilege to be called by God to
+                            serve. Your service in a department helps greatly in running the
+                            affairs of God's house. Don't be a benchwarmer, participate in departmental activities and
+                            remember, your act of service will never be in vain.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gi-section col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-custom-3 col-md-offset-0 wow fadeIn"
+                 data-wow-delay="0.9s">
+                <div class="gi-box">
+                    <img class="img-responsive" src="{% static 'newwine/static/img/icgc/12.jpg' %}" width="5053"
+                         height="3369" alt=""/>
+                    <div class="gi-info">
+                        <div class="gi-info-head">KNOW YOUR EXECUTIVES</div>
+                        <p style="font-size: 13px; width: 80%;">
+                            God has elected shepherds to watch over our souls as New Wine. These are students, who have
+                            many academic duties to perform just like you, yet have availed themselves to serve you and
+                            New Wine. Getting to know them doesn't hurt. Just follow the link in the navigation to find
+                            out more about them
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Getting Involved END-->
+
+    <!-- Upcoming Event -->
+    <div class="container-fluid upcoming-section">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-2 padding-zero">
+                {% for image in mainevent %}
+                <div class="upcoming-img-container wow fadeIn" data-wow-delay="0.4s">
+                    <img class="img-responsive upcoming-img" src="{{ image.image.url }}" width="1680" height="1127"
+                         alt=""/>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-4 wow fadeIn" data-wow-delay="0.6s">
+                <div class="upcoming-header yellow"><h1>UPCOMING EVENT</h1></div>
+                {% for event in mainevent %}
+                <div class="event-name yellow"><h2>{{ event.name }}</h2></div>
+                <div class="upcoming-description">
+                    <p style="font-size: 15px; text-align: justify;">{{event.details}}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1 wow fadeIn" data-wow-delay="0.7s">
+                <!--Timer-->
+                <div id="del-countdown">
+                    <h1 style="text-align: center;margin-bottom: 50px;">COUNTDOWN TO EVENT</h1>
+                    <div id="clock"></div>
+                    <div id="units">
+                        <span>Days</span>
+                        <span>Hours</span>
+                        <span>Minutes</span>
+                        <span>Seconds</span>
+                    </div>
+                    <div id="timer-msg"></div>
+                </div>
+                <!--Timer END-->
+            </div>
+        </div>
+    </div>
+    <!-- Upcoming Event END -->
+
+    <!-- Parallax Quote -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 padding-zero bg">
+                <div class="parallax-quote wow fadeIn" data-wow-delay="0.5s">
+                    {% for quote in quotes %}
+                    <p style="font-weight: bold;">{{quote.quote}}</p>
+                </div>
+                <div class="author wow fadeIn" data-wow-delay="0.5s">{{quote.author}}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Parallax Quote END -->
+
+    <!--Sermon-->
+    <div class="container">
+        <div class="row">
+            <h4 class="latest wow fadeIn" data-wow-delay="0.5s">LATEST</h4>
+            <div class="sermon-section wow fadeIn" data-wow-delay="0.5s">
+                <h2>SERMONS</h2>
+                <hr class="wow fadeInLeft" data-wow-delay="0.4s">
+            </div>
+            {% for sermon in sermons %}
+            <div class="sermon-section-1 wow fadeIn" data-wow-delay="0.4s">
+                <div class="sermon col-xs-10 col-md-4 col-xs-offset-1 col-md-offset-0">
+                    <div class="sermon-title">
+                        <p>ADDED : {{ sermon.added }}</p>
+                        <p><i class="fa fa-3x fa-headphones yellow "></i></p>
+                        <p><b>{{ sermon.title }}</b></p>
+                    </div>
+                </div>
+                <div style="text-align: justify;" class="col-md-6 col-xs-10 col-xs-offset-1">
+                    <h2 style="text-align: center;">SUMMARY</h2>
+                    <p>{{ sermon.summary|safe }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <br/>
+            <div class="col-xs-6 col-xs-offset-3 other-sermons"><a href="{% url 'newwine:sermons' %}">LISTEN TO
+                SERMONS</a></div>
+        </div>
+    </div>
+    <!--Sermon END-->
+
+
+    <!--Announcement-->
+    <div class="container-fluid announcement">
+        <div class="row">
+            <div style="text-align: center;"
+                 class="h col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+
+                <h4 class="latest wow fadeIn" data-wow-delay="0.5s">LATEST</h4>
+                <h2 class="wow fadeIn" data-wow-delay="0.5s" style="text-align: center;">ANNOUNCEMENTS</h2>
+                <hr class="wow fadeInLeft" data-wow-delay="0.4s">
+                <p style="font-size: 20px;">All members are to take note of the following announcements</p>
+                <div class="ann-section">
+                    <i class="fas fa-3x fa-bullhorn megaphone"></i>
+                    {% for announcement in announcements %}
+                    <div style="text-align: left;" class="announcement-item wow fadeIn" data-wow-delay="0.5s">
+                        <div class="announcement-title"><b>{{ announcement.title }}</b></div>
+                        <div class="announcement-date"> {{ announcement.added }}</div>
+                        <div class="announcement-info">{{ announcement.announcement }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <!--Announcement END-->
+
+
+    <!-- Partner -->
+    <section style="margin-top: 60px; margin-bottom: 60px;">
+        <h2 class="wow fadeIn" data-wow-delay="0.5s" style="text-align: center;">PARTNER WITH NEW WINE</h2>
+        <hr class="wow fadeInLeft" data-wow-delay="0.4s">
+        <div class="container">
+            <div class="photo-card wow fadeIn" data-wow-delay="0.6s">
+                <div class="photo-background"
+                     style="background-image:url(../../static/newwine/static/img/icgc/mo.jpg);"></div>
+                <div class="photo-detail">
+                    <h1>Want to partner with us ?</h1>
+                    <p>
+                        Anyone wanting to partner financially with I.C.G.C New Wine can simply do so by
+                        sending any donations or offering to the MTN Mobile Money number below. Your donations and
+                        offerings
+                        will be used to meet the welfare needs of underprivileged students in the church and to help
+                        provide extra equipment to establish better
+                        conditions for service and many more.
+                    </p>
+                    <p>Our hope is for you to be a partaker of the next level of the campus church through your giving.
+                        Thank you!</p>
+                    <div class="photo-tags">
+                        <ul>
+                            <li><a href="#">MTN Number : +233 55 821 8325</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Partner END -->
+
+
+    {% endblock %}
+
+    <!-- Custom JS Files-->
+
+    {% block js %}
+    <script type="text/javascript" src="{% static 'newwine/static/js/timer.js' %}"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+  'use strict';
+
+    // JavaScript Document
+function updateTimer(deadline){
+  
+  var time = deadline - new Date();
+  return {
+    'days': Math.floor( time/(1000*60*60*24) ),
+    'hours': Math.floor( (time/(1000*60*60)) % 24 ),
+    'minutes': Math.floor( (time/1000/60) % 60 ),
+    'seconds': Math.floor( (time/1000) % 60 ),
+    'total' : time 
+  };
+}
+
+function animateClock(span){
+  span.className = "turn";
+  setTimeout(function() {
+    span.className = "";
+  }, 700);
+}
+
+function startTimer(id,deadline){
+  
+  var timerInterval = setInterval(function(){
+    
+    var clock = document.getElementById(id);
+    var timer = updateTimer(deadline);
+    var timer_msg = document.getElementById("timer-msg");
+
+    clock.innerHTML = '<span>' + timer.days + '</span>' +
+              '<span>' + timer.hours + '</span>' +
+              '<span>' + timer.minutes + '</span>' +
+              '<span>' + timer.seconds + '</span>';
+
+
+    //animations
+    var spans = clock.getElementsByTagName("span");
+    animateClock(spans[3]);
+    if(timer.seconds == 59) animateClock(spans[2]);
+    if(timer.minutes == 59 && timer.seconds == 59) animateClock(spans[1]);
+    if(timer.hours == 23 && timer.minutes == 59 && timer.seconds == 59) animateClock(spans[0]);
+
+    //check for end of timer
+    if(timer.total < 1){
+      clearInterval(timerInterval);
+      clock.innerHTML = '<span>0</span><span>0</span><span>0</span><span>0</span>';
+      timer_msg.innerHTML = "THE EVENT IS OVER :(";
+    }
+
+  }, 1000);
+}
+window.onload = function(){
+  {% for event in mainevent %}
+    var deadline = new Date("{{ event.event_time }}");
+  {% endfor %}
+  startTimer("clock",deadline);
+};
+});
+
+    </script>
+    <script type="text/javascript" src="{% static 'newwine/static/js/main.js' %}"></script>
+    {% endblock %}

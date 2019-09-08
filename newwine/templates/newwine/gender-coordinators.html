@@ -1,0 +1,144 @@
+{% extends 'newwine/base.html' %}
+{% block title %}Gender Ministries | New Wine{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/upcoming.css' %}" />
+{% endblock %}
+
+{% block body %}
+<body style="background-image: none; background-color: #fff;" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    {% include 'newwine/static-navbar.html' %}
+
+    
+    {% for gender in gender %}
+
+    <!-- Coordinator Head -->
+    <div id="coordinator-head">
+        <div id="coordinator-head-text">
+            <h2>Gender Ministries Coordinators</h2>
+        </div>
+    </div>
+    <!-- Coordinator Head END -->
+    
+    <!-- Gender Coordinator Details -->
+    <div style="margin-top: 80px; margin-bottom: 90px;" class="container">
+        <div class="row">
+            <div style="margin-bottom: 60px;" class="col-xs-12 col-sm-6">
+                <h3 style="text-align: center; display: block; margin-bottom: 40px;">MEN'S MINISTRY HEAD</h3>
+                <div id="coordinator-img">
+                    <img class="img-responsive img-circle" src="{{gender.men_coord_img.url}}" alt="{{ gender.men_coord_name }}">
+                </div>
+                <div id="coordinator-details">
+                    <p>{{ gender.men_coord_name|title }}</p>
+                    <p>{{ gender.men_coord_course|title }}</p>
+                    <p>{{ gender.men_coord_hostel|title }}</p>
+                    <p>{{ gender.men_coord_contact }}</p>
+                </div>
+            </div>
+            <div style="margin-bottom: 60px;" class="col-xs-12 col-sm-6">
+                <h3 style="text-align: center;display: block; margin-bottom: 40px;">WOMEN'S MINISTRY HEAD</h3>
+                <div id="coordinator-img">
+                    <img class="img-responsive img-circle" src="{{gender.women_coord_img.url}}" alt="{{ gender.women_coord_name }}">
+                </div>
+                <div id="coordinator-details">
+                    <p>{{ gender.women_coord_name|title }}</p>
+                    <p>{{ gender.women_coord_course|title }}</p>
+                    <p>{{ gender.women_coord_hostel|title }}</p>
+                    <p>{{ gender.women_coord_contact }}</p>
+                </div>
+            </div>
+            <hr style="width: 100%;border-color: rgba(0,0,0,0.3);">
+            <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2">
+                <div id="coordinator-role">
+                    <h2 style="margin-bottom: 35px; font-weight: bold;">What The Gender Coordinators Do</h2>
+                    <p style="font-size: 15px;">
+                        {{ gender.gender_coord_role|safe }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gender Coordinator Details END -->
+
+    {% endfor %}
+
+</body>
+
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+    // Initialize WOW.js Scrolling Animations
+    new WOW().init();
+//NAV
+
+
+// jQuery to collapse the navbar on scroll
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').not('.dropdown-toggle').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+//NAV END
+
+
+
+//Scroll Bar
+if($(window).width()>1024) {
+    $('body,.modal').niceScroll({
+      scrollspeed:'100',
+      mousescrollstep:'40',
+      zindex:'99999',
+      bouncescroll:'enable',
+      cursorborderradius:'0px',
+      cursorborder:'none',
+      cursorcolor:'#EFDF03'
+    });
+  }
+//Scroll Bar END	
+
+
+//-------- OPEN
+
+  $('[data-popup-open]').on('click',function(e) {
+    "use strict";
+    var targeted_popup_class = $(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+    e.preventDefault();
+  });
+
+
+
+  //-------- CLOSE
+  $('[data-popup-close]').on('click',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+    e.preventDefault();
+  });	
+</script>
+{% endblock %}

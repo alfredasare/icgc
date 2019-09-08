@@ -1,0 +1,39 @@
+{% extends 'newwine/base.html' %}
+{% block title %}Registration | New Wine{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/upcoming.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style.css' %}" />
+{% endblock %}
+
+
+{% block body %}
+<body>
+{% include 'newwine/static-navbar.html' %}
+
+
+<div style="margin-top: 100px;" class="container">
+	<div class="row">
+		<div class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2">
+			<div class="message">
+				<p style="font-size: 20px; margin-bottom: 50px; margin-top: 30px; text-align: center;"><i class='fa fa-4x fa-frown-o'></i></p>
+				<p style="font-size: 20px; margin-bottom: 50px;">
+					There was an error in your data. Please go back and fill the form again. Thank You for your cooperation
+				</p>
+				<a style="color: rgba(0,0,0,1.00); font-size: 25px; margin-bottom: 150px; text-align: center;" href="{% url 'newwine:registration' %}">Back</a>
+			</div>
+		</div>
+	</div>	
+</div>
+</body>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock%}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'newwine/static/js/main.js' %}"></script>
+{% endblock %}

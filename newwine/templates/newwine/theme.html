@@ -1,0 +1,131 @@
+{% extends 'newwine/base.html' %}
+{% block title %}Theme | New Wine{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/upcoming.css' %}" />
+{% endblock %}
+
+{% block body %}
+<body style="background-image: none; background-color: rgba(255,255,255,1.00);" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    {% include 'newwine/static-navbar.html' %}
+
+    {% for theme in theme %}
+    <!-- Theme Of The Sem -->
+    <div id="theme-head">
+        <div style="color: rgba(255,255,255,1.00); text-align: center;" id="coordinator-head-text">
+            <p style="font-size: 45px;">{{ theme.theme_name }}</p>
+            <p style="font-size: 25px;">Theme Of The Semester</p>
+        </div>
+    </div>
+    <!-- Theme Of The Sem End -->
+
+    <!-- Theme Scripture -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <div id="theme-scripture">
+                    <p> 
+                        {{ theme.theme_verse_body|safe }}
+                    </p>
+                    <p style="font-weight: bold; text-align: center;">{{ theme.theme_verse_scripture }}</p>
+                </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1">
+                <div id="theme-explanation">
+                    <p>
+                        {{ theme.theme_body|safe }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1">
+                <div id="theme-tenets">
+                    <p style="font-size: 30px; text-align: center;">Tenets</p>
+                    <hr />
+                    <p>
+                        {{ theme.theme_tenets|safe }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Theme Scripture End -->
+    {% endfor %}
+
+{% endblock %}
+
+
+
+{% block js %}
+<script>
+    // Initialize WOW.js Scrolling Animations
+    new WOW().init();
+//NAV
+
+
+// jQuery to collapse the navbar on scroll
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').not('.dropdown-toggle').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+//NAV END
+
+
+
+//Scroll Bar
+if($(window).width()>1024) {
+    $('body,.modal').niceScroll({
+      scrollspeed:'100',
+      mousescrollstep:'40',
+      zindex:'99999',
+      bouncescroll:'enable',
+      cursorborderradius:'0px',
+      cursorborder:'none',
+      cursorcolor:'#EFDF03'
+    });
+  }
+//Scroll Bar END	
+
+
+//-------- OPEN
+
+  $('[data-popup-open]').on('click',function(e) {
+    "use strict";
+    var targeted_popup_class = $(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+    e.preventDefault();
+  });
+
+
+
+  //-------- CLOSE
+  $('[data-popup-close]').on('click',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+    e.preventDefault();
+  });	
+</script>
+{% endblock %}

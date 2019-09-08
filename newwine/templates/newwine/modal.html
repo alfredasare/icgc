@@ -1,0 +1,52 @@
+{% for item in family %}
+<!--Modal 1 -->
+<div class="popup" data-popup="popup-{{ forloop.counter }}">
+  {% if item.dept_cov_head != "None" %}
+    <div class="popup-inner">
+  {% elif item.dept_cov_head == "None"  %}
+    <div style="top: 780px;" class="popup-inner">
+  {% endif %}
+      <div class="family-heading">
+        <div class="family-img"><img style="width: 100%;" src="{{ item.cov_img.url }}"></div>
+        <div class="family-name">{{ item.cov_name }}</div>
+      </div>
+      <div class="family-meetings">
+        <div><h2 style="padding-top: 20px; padding-bottom: 20px;">MEETING DAY AND TIME</h2></div>
+        <div class="family-day">
+          <div><i class="far fa-4x fa-calendar-alt"></i></div>
+          <div style="margin-top: 10px; font-size: 17px;"><p>{{item.cov_day}} @ {{ item.cov_time }}</p></div>
+        </div>
+        <hr style="width: 50%; margin-top: auto; margin-right: auto;">
+        <div class="family-time">
+          <div><i class="fas fa-4x fa-map-marker"></i></div>
+          <div style="margin-top: 10px; font-size: 17px;"><p>{{ item.cov_location }}</p></div>
+        </div>
+        <hr style="width: 50%; margin-top: auto; margin-right: auto;">
+        <div class="leaders-contact">
+          <div><h3>CONTACT YOUR LEADER(S)</h3></div>
+          <div class="family-head">
+            <div class="team-member"><img class="rounded-circle img-fluid" src="{{ item.cov_head_image.url }}"></div>
+            <p><b>HEAD</b> : {{ item.cov_head|upper }}</p>
+            <p><b>COURSE</b> : {{ item.cov_course|upper }}</p>
+            <p><b>HOSTEL</b> : {{ item.cov_hostel|upper }}</p>
+            <p><b>CONTACT</b> : {{ item.cov_contact|upper }}</p>
+          </div>
+          <hr style="width: 50%; margin-top: auto; margin-right: auto;">
+          {% if item.dept_cov_head != "None" %}
+          <div class="deputy-family-head">
+            <div class="team-member"><img class="rounded-circle img-fluid" src="{{ item.dept_head_image.url }}"></div>
+            <p><b>DEPUTY</b> : {{ item.dept_cov_head|upper }}</p>
+            <p><b>COURSE</b> : {{ item.dept_cov_course|upper }}</p>
+            <p><b>HOSTEL</b> : {{ item.dept_cov_hostel|upper }}</p>
+            <p><b>CONTACT</b> : {{ item.dept_cov_head_contact|upper }}</p>
+          </div>
+          {% else %}
+            <p></p>
+          {% endif %}
+        </div>
+      </div>
+      <div style="padding-bottom: 50px; margin-top: 45px;"><a class="cov-close" href="#" data-popup-close="popup-{{ forloop.counter }}">CLOSE</a></div>
+  </div>
+</div>
+<!--Modal 1 END -->
+{% endfor %}

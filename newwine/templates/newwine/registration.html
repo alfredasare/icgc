@@ -1,0 +1,100 @@
+{% extends 'newwine/base.html' %}
+{% block title %}Registration | New Wine{% endblock %}
+
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/upcoming.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'newwine/static/css/mod.css' %}" />
+{% endblock %}
+
+{% block body %}
+
+
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+	{% include 'newwine/static-navbar.html' %}
+			  
+			  
+
+<!--header-->
+<section class="header" style="background-image: url(../../static/newwine/static/img/icgc/IMG_8810.jpg);">
+    <div class="heading">
+        <div class="heading-content">
+            <h1 class="wow fadeInDown" data-wow-delay="0.5s">REGISTRATION</h1>
+            <a class="btn wow fadeInUp" data-wow-delay="0.5s" href="#more">FIND OUT MORE</a>
+        </div>
+    </div>
+</section>
+<!-- header END -->
+
+
+<div id="more" class="container">
+	<div class="row">
+		<div style="text-align: justify;" class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2 registration">
+			
+			<h1 style="text-align: center;" id="more" class="registration-head wow fadeIn" data-wow-delay="0.5s">REGISTRATION</h1>
+			<hr class="wow fadeInLeft" data-wow-delay="0.4s">
+			<p class="wow fadeIn" data-wow-delay="0.5s" style="margin-bottom: 50px;font-size: 16px">
+			New Wine wants to know you. As such you are being entreated to fill in your details in the form below. We want to know you on a one-on-one basis. Please let us be faithful with this exercise
+      </p>
+		</div>
+	</div>
+</div>
+
+
+<!--Form -->
+<div class="container">
+	<div id="form" class="row wow fadeIn" data-wow-delay="0.5s">
+		<div class="col-md-8 col-md-offset-2 wow fadeIn" data-wow-delay=".3s">
+		  <form class="form-horizontal" method="post" enctype="multipart/form-data" action="">
+		  	<div class="col-md-8 col-md-offset-2 wow fadeIn" data-wow-delay=".3s">
+			{% csrf_token %}
+		    {% include 'newwine/form_template.html' %}
+		    {% if error %}
+		    <p></p>
+		    {% else %}
+		    <div class="form-group">
+                <button type="submit" class="btn btn-info">Submit</button>
+            </div>
+		    {% endif %}
+			
+           </div>
+		  </form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'newwine/static/js/main.js' %}"></script>
+<script>
+
+ // Initialize WOW.js Scrolling Animations
+ new WOW().init();
+
+//-------- OPEN
+
+  $('[data-popup-open]').on('click',function(e) {
+    "use strict";
+    var targeted_popup_class = $(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+    e.preventDefault();
+  });
+
+
+
+  //-------- CLOSE
+  $('[data-popup-close]').on('click',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+    e.preventDefault();
+  }); 
+
+</script>
+{% endblock %}

@@ -1,0 +1,112 @@
+/*******************Timer*******************/
+ #del-countdown{
+    width: 75%;
+    margin: 10% auto;
+ }
+
+ @media screen and (max-width: 440px){
+     #del-countdown{
+        width: 100%;
+        margin: 10% auto;
+     }
+ }
+
+#clock span{
+    float: left;
+    text-align: center;
+    font-size: 84px;
+    margin: 0 2.5%;
+    color: rgba(239,223,3,1.00);
+    padding: 20px;
+    width: 20%;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 391px) and (max-width: 439px){
+    #clock span{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 390px){
+    #clock span{
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 440px) and (max-width:767px){
+#clock span{
+    font-size: 35px;
+    margin: 0 2.5%;
+    
+    padding: 20px;
+    width: 20%;
+    
+}
+}
+
+#clock span:nth-child(1){
+    background-color: rgba(0,0,0,0.7);   
+}
+
+
+#clock span:nth-child(2){
+    background-color: rgba(0,0,0,0.7);   
+}
+
+
+#clock span:nth-child(3){
+    background-color: rgba(0,0,0,0.7);   
+}
+
+
+#clock span:nth-child(4){
+    background-color: rgba(0,0,0,0.7);   
+}
+
+
+#clock:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#units span{
+    float: left;
+    width: 25%;
+    text-align: center;
+    margin-top: 50px;
+    color: rgba(0,0,0,1.00);
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;  
+}
+
+@media screen and (max-width:321px){
+    #units span{
+        font-size: 10px;
+    }
+}
+
+span.turn {
+    animation: turn 0.7s ease forwards;
+}
+
+@keyframes turn{
+    0%{
+        transform: rotateX(0deg);
+    }
+
+    100%{
+        transform: rotateX(360deg);
+    }
+}
+
+
+#timer-msg{
+	font-size: 40px;
+	text-align: center;
+	margin-top: 100px;
+}
+/*******************Timer END***************/
